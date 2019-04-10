@@ -26,17 +26,29 @@ class MyScene extends CGFscene {
         this.house = new MyHouse(this);
         this.hill = new MyVoxelHill(this, 10);
         this.treerow = new MyTreeRowPatch(this);
+        this.cubemap = new MyCubeMap(this);
 
         //Materials
         
+		this.trunkMaterial = new CGFappearance(this);
+        this.trunkMaterial.loadTexture('images/skybox.jpg');
+        this.trunkMaterial.setTextureWrap('REPEAT', 'REPEAT');
 
         //Objects connected to MyInterface
     }
     initLights() {
         this.lights[0].setPosition(15, 2, 5, 1);
         this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
-        this.lights[0].enable();
+        this.lights[0].setVisible(true);
+        //this.lights[0].enable();
         this.lights[0].update();
+
+        this.lights[1].setPosition(0, 0, 0, 1);
+        this.lights[1].setDiffuse(1, 1, 1, 1);
+        this.lights[1].setSpecular(1, 1, 1, 1);
+        this.lights[1].setVisible(true);
+        this.lights[1].enable();
+        this.lights[1].update();
     }
     initCameras() {
         this.camera = new CGFcamera(0.4, 0.1, 500, vec3.fromValues(15, 15, 15), vec3.fromValues(0, 0, 0));
@@ -58,11 +70,13 @@ class MyScene extends CGFscene {
         // Apply transformations corresponding to the camera position relative to the origin
         this.applyViewMatrix();
 
+        this.lights[0].update();
+        this.lights[1].update();
+
         // Draw axis
         this.axis.display();
 
         //Apply default appearance
-        //this.prism.enableNormalViz();
         this.setDefaultAppearance();
 
         // ---- BEGIN Primitive drawing section
@@ -102,7 +116,9 @@ class MyScene extends CGFscene {
         this.treegroup.display();
         this.popMatrix();*/
 
-        this.treerow.display();
+        this.trunkMaterial.apply();
+        this.scale(10, 10, 10);
+        this.cubemap.display();
         
         //this.house.display();
 

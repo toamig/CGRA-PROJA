@@ -17,6 +17,7 @@ serialInclude([
                 'MyTreeRowPatch.js',
                 'MyHouse.js',
                 'MyVoxelHill.js',
+                'MyCubeMap.js',
 
 main=function()
 {
