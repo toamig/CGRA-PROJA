@@ -24,10 +24,16 @@ treeTopTexture)
 
 	initMaterials() {
 		this.trunkMaterial = new CGFappearance(this.scene);
+		this.trunkMaterial.setAmbient(0.5,0.5,0.5,1);
+		this.trunkMaterial.setDiffuse(0.6,0.6,0.6,1);
+		this.trunkMaterial.setSpecular(0.1,0.1,0.1,1);
         this.trunkMaterial.loadTexture('images/' + this.trunkTexture);
         this.trunkMaterial.setTextureWrap('REPEAT', 'REPEAT');
 
         this.topMaterial = new CGFappearance(this.scene);
+        this.topMaterial.setAmbient(0.5,0.5,0.5,1);
+        this.topMaterial.setDiffuse(0.6,0.6,0.6,1);
+        this.topMaterial.setSpecular(0.1,0.1,0.1,1);
         this.topMaterial.loadTexture('images/' + this.treeTopTexture);
         this.topMaterial.setTextureWrap('REPEAT', 'REPEAT');
 	}

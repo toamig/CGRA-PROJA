@@ -29,10 +29,17 @@ class MyScene extends CGFscene {
         this.cubemap = new MyCubeMap(this);
 
         //Materials
-        
-		this.trunkMaterial = new CGFappearance(this);
-        this.trunkMaterial.loadTexture('images/skybox.jpg');
-        this.trunkMaterial.setTextureWrap('REPEAT', 'REPEAT');
+		this.dayMaterial = new CGFappearance(this);
+        this.dayMaterial.loadTexture('images/dayMap.png');
+        this.dayMaterial.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+        this.dayMaterial.setAmbient(1,1,1,1);
+        this.dayMaterial.setEmission(1,1,1,1);
+
+        this.nightMaterial = new CGFappearance(this);
+        this.nightMaterial.loadTexture('images/testnight.png');
+        this.nightMaterial.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+        this.nightMaterial.setAmbient(1,1,1,1);
+        this.nightMaterial.setEmission(1,1,1,1);
 
         //Objects connected to MyInterface
     }
@@ -47,7 +54,7 @@ class MyScene extends CGFscene {
         this.lights[1].setDiffuse(1, 1, 1, 1);
         this.lights[1].setSpecular(1, 1, 1, 1);
         this.lights[1].setVisible(true);
-        this.lights[1].enable();
+        //this.lights[1].enable();
         this.lights[1].update();
     }
     initCameras() {
@@ -109,18 +116,20 @@ class MyScene extends CGFscene {
         this.pushMatrix();
         this.translate(-15,0,-15);
         this.treegroup.display();
+        this.popMatrix();*/
+
+        this.pushMatrix();
+        this.translate(15,0,15);
+        this.treegroup.display();
         this.popMatrix();
 
         this.pushMatrix();
-        this.translate(0,0,-15);
-        this.treegroup.display();
-        this.popMatrix();*/
-
-        this.trunkMaterial.apply();
-        this.scale(10, 10, 10);
+        this.dayMaterial.apply();
+        this.scale(60,60,60);
         this.cubemap.display();
+        this.popMatrix();
         
-        //this.house.display();
+        this.house.display();
 
         // ---- END Primitive drawing section
     }

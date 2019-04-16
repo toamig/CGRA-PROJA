@@ -12,7 +12,7 @@ class MyHouse extends CGFobject {
 		this.pillar2 = new MyPrism(scene,8);
 		this.pillar3 = new MyPrism(scene,8);
 		this.pillar4 = new MyPrism(scene,8);
-		this.body = new MyUnitCubeQuad(scene);
+		this.body = new MyUnitCubeQuad(scene, 'houseBack.png', 'houseSide.png', 'houseBack.png', 'houseFront.png');
 		this.roof = new MyPyramid(scene,4);
         
         this.initBuffers();
@@ -20,16 +20,19 @@ class MyHouse extends CGFobject {
 	}
 
 	initMaterials() {
-		this.bodyMaterial = new CGFappearance(this.scene);
-        this.bodyMaterial.loadTexture('images/housebody.png');
-        this.bodyMaterial.setTextureWrap('REPEAT', 'REPEAT');
-
         this.pillarMaterial = new CGFappearance(this.scene);
+        this.pillarMaterial.setAmbient(0.5,0.5,0.5,1);
+		this.pillarMaterial.setDiffuse(0.6,0.6,0.6,1);
+		this.pillarMaterial.setSpecular(0.2,0.2,0.2,1);
         this.pillarMaterial.loadTexture('images/pillar.jpg');
         this.pillarMaterial.setTextureWrap('REPEAT', 'REPEAT');
 
         this.roofMaterial = new CGFappearance(this.scene);
-        this.roofMaterial.loadTexture('images/woodroof.jpg');
+        this.roofMaterial.setAmbient(1,1,1,1);
+		this.roofMaterial.setDiffuse(1,1,1,1);
+        this.roofMaterial.setSpecular(0.1,0.1,0.1,1);
+        //this.roofMaterial.setEmission(1,1,1,1);
+        this.roofMaterial.loadTexture('images/snowroof.jpg');
         this.roofMaterial.setTextureWrap('REPEAT', 'REPEAT');
 	}
 
@@ -40,7 +43,6 @@ class MyHouse extends CGFobject {
     }
 
 	display() {
-		this.bodyMaterial.apply();
         this.scene.pushMatrix();
         this.scene.translate(0,2,0);
         this.scene.scale(4, 4, 4);
