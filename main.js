@@ -8,6 +8,7 @@ serialInclude([
                 'MyInterface.js',
                 'MyPrism.js',
                 'MyCylinder.js',
+                'MyCylinderReverse.js',
                 'MyCone.js',
                 'MyPyramid.js',
                 'MyQuad.js',
@@ -18,6 +19,8 @@ serialInclude([
                 'MyHouse.js',
                 'MyVoxelHill.js',
                 'MyCubeMap.js',
+                'MyCampfire.js',
+                'MyBucket.js',
 
 main=function()
 {

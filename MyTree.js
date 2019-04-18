@@ -24,16 +24,14 @@ treeTopTexture)
 
 	initMaterials() {
 		this.trunkMaterial = new CGFappearance(this.scene);
-		this.trunkMaterial.setAmbient(0.5,0.5,0.5,1);
 		this.trunkMaterial.setDiffuse(0.6,0.6,0.6,1);
-		this.trunkMaterial.setSpecular(0.1,0.1,0.1,1);
+		this.trunkMaterial.setSpecular(0.3,0.3,0.3,1);
         this.trunkMaterial.loadTexture('images/' + this.trunkTexture);
         this.trunkMaterial.setTextureWrap('REPEAT', 'REPEAT');
 
         this.topMaterial = new CGFappearance(this.scene);
-        this.topMaterial.setAmbient(0.5,0.5,0.5,1);
         this.topMaterial.setDiffuse(0.6,0.6,0.6,1);
-        this.topMaterial.setSpecular(0.1,0.1,0.1,1);
+        this.topMaterial.setSpecular(0.3,0.3,0.3,1);
         this.topMaterial.loadTexture('images/' + this.treeTopTexture);
         this.topMaterial.setTextureWrap('REPEAT', 'REPEAT');
 	}
@@ -49,6 +47,12 @@ treeTopTexture)
         this.scene.pushMatrix();
         this.scene.translate(0,this.trunkHeight,0);
         this.scene.scale(this.treeTopRadius,this.treeTopHeight,this.treeTopRadius);
+        this.top.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(0,this.trunkHeight + this.trunkHeight * 0.4,0);
+        this.scene.scale(this.treeTopRadius * 0.8,this.treeTopHeight * 0.7,this.treeTopRadius * 0.8);
         this.top.display();
         this.scene.popMatrix();
 	}

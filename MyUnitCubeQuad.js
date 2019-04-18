@@ -7,7 +7,7 @@ class MyUnitCubeQuad extends CGFobject {
 
 	constructor(scene, topTexture, sideTexture, backTexture, frontTexture) {
 		super(scene);
-		this.quad = new MyQuad(scene);
+		this.quad = new MyQuad(scene, 1, 1);
 		this.topTexture = topTexture;
 		this.sideTexture = sideTexture;
 		this.backTexture = backTexture;
@@ -17,29 +17,25 @@ class MyUnitCubeQuad extends CGFobject {
 
 	initMaterials() {
 		this.topMaterial = new CGFappearance(this.scene);
-		this.topMaterial.setAmbient(0.5,0.5,0.5,1);
-		this.topMaterial.setDiffuse(0.6,0.6,0.6,1);
+		this.topMaterial.setDiffuse(0.5,0.5,0.5,1);
 		this.topMaterial.setSpecular(0.1,0.1,0.1,1);
         this.topMaterial.loadTexture('images/' + this.topTexture);
         this.topMaterial.setTextureWrap('REPEAT', 'REPEAT');
 
         this.sideMaterial = new CGFappearance(this.scene);
-        this.sideMaterial.setAmbient(0.5,0.5,0.5,1);
-		this.sideMaterial.setDiffuse(0.6,0.6,0.6,1);
+		this.sideMaterial.setDiffuse(0.5,0.5,0.5,1);
 		this.sideMaterial.setSpecular(0.1,0.1,0.1,1);
         this.sideMaterial.loadTexture('images/' + this.sideTexture);
         this.sideMaterial.setTextureWrap('REPEAT', 'REPEAT');
 
         this.backMaterial = new CGFappearance(this.scene);
-        this.backMaterial.setAmbient(0.5,0.5,0.5,1);
-		this.backMaterial.setDiffuse(0.6,0.6,0.6,1);
+		this.backMaterial.setDiffuse(0.5,0.5,0.5,1);
 		this.backMaterial.setSpecular(0.1,0.1,0.1,1);
         this.backMaterial.loadTexture('images/' + this.backTexture);
         this.backMaterial.setTextureWrap('REPEAT', 'REPEAT');
 
         this.frontMaterial = new CGFappearance(this.scene);
-        this.frontMaterial.setAmbient(0.5,0.5,0.5,1);
-		this.frontMaterial.setDiffuse(0.6,0.6,0.6,1);
+		this.frontMaterial.setDiffuse(0.5,0.5,0.5,1);
 		this.frontMaterial.setSpecular(0.1,0.1,0.1,1);
         this.frontMaterial.loadTexture('images/' + this.frontTexture);
         this.frontMaterial.setTextureWrap('REPEAT', 'REPEAT');

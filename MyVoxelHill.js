@@ -9,13 +9,12 @@ class MyVoxelHill extends CGFobject {
 	{
 		super(scene);
 		this.levels = levels;
-		this.cube = new MyUnitCubeQuad(scene,'grass.png', 'grass.png', 'grass.png','grass.png');
+		this.cube = new MyUnitCubeQuad(scene,'snow.png', 'snow.png', 'snow.png','snow.png');
         
         this.initBuffers();
 	}
 
 	display() {
-		this.terrainMaterial.apply();
 		for(var i = 0; i < this.levels; i++){
 		    for(var j = 0; j < i+i+1; j++){
 		        for(var k = 0; k < i+i+1; k++){
